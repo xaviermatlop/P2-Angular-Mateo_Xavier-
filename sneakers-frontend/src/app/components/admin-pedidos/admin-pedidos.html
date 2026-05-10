@@ -1,0 +1,20 @@
+<h2>Gestión de Pedidos</h2>
+
+<table>
+  <tr><th>ID</th><th>Usuario</th><th>Total</th><th>Dirección</th><th>Estado</th></tr>
+  @for (pedido of pedidos; track pedido.id) {
+    <tr>
+      <td>#{{ pedido.id }}</td>
+      <td>{{ pedido.user_id }}</td>
+      <td>{{ pedido.total_amount }}€</td>
+      <td>{{ pedido.shipping_address }}</td>
+      <td>
+        <select [(ngModel)]="pedido.status" (change)="cambiarEstado(pedido)">
+          @for (estado of estados; track estado) {
+            <option [value]="estado">{{ estado }}</option>
+          }
+        </select>
+      </td>
+    </tr>
+  }
+</table>

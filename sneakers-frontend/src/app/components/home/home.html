@@ -1,0 +1,47 @@
+<!-- Hero banner con imagen de Cloudinary como background CSS -->
+<section class="banner" [style.backgroundImage]="'url(' + heroUrl + ')'">
+  <div class="banner-overlay">
+    <h1>Nueva temporada</h1>
+    <p>Descubre las últimas tendencias en calzado deportivo</p>
+    <a routerLink="/catalogo"><button class="btn-hero">Ver catálogo</button></a>
+  </div>
+</section>
+
+<!-- Productos destacados -->
+<section class="section-destacados">
+  <h2>Productos destacados</h2>
+  <div class="grid">
+    @for (p of destacados; track p.id) {
+      <div class="card">
+        <!-- Imagen del producto: viene de Cloudinary vía image_url de Supabase -->
+        <div class="card-img-wrap">
+          <img
+            [src]="p.image_url || 'https://placehold.co/400x300?text=' + p.name"
+            [alt]="p.name"
+            loading="lazy">
+        </div>
+        <div class="card-body">
+          <span class="card-brand">{{ p.brand }}</span>
+          <h3>{{ p.name }}</h3>
+          <p class="card-price">{{ p.price }}€</p>
+          <a [routerLink]="['/catalogo', p.slug]"><button class="btn-card">Ver producto</button></a>
+        </div>
+      </div>
+    }
+    @empty {
+      <p class="empty">Cargando productos...</p>
+    }
+  </div>
+</section>
+
+<!-- Categorías -->
+<section class="section-cats">
+  <h2>Comprar por categoría</h2>
+  <div class="categorias">
+    @for (cat of categorias; track cat) {
+      <a [routerLink]="['/catalogo']" [queryParams]="{categoria: cat.toLowerCase()}">
+        <div class="cat-card">{{ cat }}</div>
+      </a>
+    }
+  </div>
+</section>

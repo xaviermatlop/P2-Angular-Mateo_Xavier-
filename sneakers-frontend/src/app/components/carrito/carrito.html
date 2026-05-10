@@ -1,0 +1,33 @@
+<h2>Tu carrito</h2>
+
+@if (carrito.getItems().length === 0) {
+  <div class="vacio">
+    <p>Tu carrito está vacío</p>
+    <a routerLink="/catalogo"><button>Ver catálogo</button></a>
+  </div>
+} @else {
+  @for (item of carrito.getItems(); track $index) {
+    <div class="item-carrito">
+      <img [src]="item.image_url" [alt]="item.name" width="80">
+      <div>
+        <h3>{{ item.name }}</h3>
+        <p>Talla: {{ item.talla }} | Cantidad: {{ item.cantidad }}</p>
+        <p><strong>{{ item.price * item.cantidad }}€</strong></p>
+      </div>
+      <button (click)="carrito.eliminar($index)">Eliminar</button>
+    </div>
+  }
+
+  <h3>Total: {{ carrito.total() }}€</h3>
+
+  @if (!mostrarFormulario) {
+    <button (click)="mostrarFormulario = true">Finalizar Pedido</button>
+  } @else {
+    <div>
+      <input [(ngModel)]="direccion" placeholder="Dirección de entrega">
+      <textarea [(ngModel)]="observaciones" placeholder="Observaciones (opcional)"></textarea>
+      <button (click)="finalizarPedido()">Confirmar pedido</button>
+      @if (mensaje) { <p>{{ mensaje }}</p> }
+    </div>
+  }
+}

@@ -1,0 +1,30 @@
+<h2>Catálogo de zapatillas</h2>
+
+<div class="filtros">
+  <input [(ngModel)]="busqueda" (input)="filtrar()" placeholder="Buscar por nombre o marca...">
+  <select [(ngModel)]="categoriaFiltro" (change)="filtrar()">
+    @for (cat of categorias; track cat.slug) {
+      <option [value]="cat.slug">{{ cat.label }}</option>
+    }
+  </select>
+</div>
+
+@if (cargando) {
+  <p>Cargando productos...</p>
+}
+
+<div class="grid">
+  @for (p of productos; track p.id) {
+    <div class="card">
+      <img [src]="p.image_url" [alt]="p.name">
+      <h3>{{ p.name }}</h3>
+      <p>{{ p.brand }}</p>
+      <p><strong>{{ p.price }}€</strong></p>
+      <a [routerLink]="['/catalogo', p.slug]"><button>Ver más</button></a>
+    </div>
+  } @empty {
+    @if (!cargando) {
+      <p>No se encontraron productos.</p>
+    }
+  }
+</div>

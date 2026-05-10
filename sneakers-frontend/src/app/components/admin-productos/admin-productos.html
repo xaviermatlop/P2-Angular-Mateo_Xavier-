@@ -1,0 +1,41 @@
+<h2>Gestión de Productos</h2>
+<button (click)="abrirFormulario()">+ Añadir producto</button>
+
+@if (mostrarFormulario) {
+  <div class="formulario">
+    <h3>{{ editando ? 'Editar' : 'Nuevo' }} producto</h3>
+    <input [(ngModel)]="form.name"        placeholder="Nombre">
+    <input [(ngModel)]="form.brand"       placeholder="Marca">
+    <select [(ngModel)]="form.category_id">
+      <option value="">-- Selecciona categoría --</option>
+      @for (cat of categorias; track cat.id) {
+        <option [value]="cat.id">{{ cat.name }}</option>
+      }
+    </select>
+    <input [(ngModel)]="form.price"       type="number" placeholder="Precio">
+    <input [(ngModel)]="form.stock"       type="number" placeholder="Stock">
+    <input [(ngModel)]="form.sizes"       placeholder="Tallas (ej: 38,39,40,41,42)">
+    <textarea [(ngModel)]="form.description" placeholder="Descripción"></textarea>
+    <label>Imagen:</label>
+    <input type="file" accept="image/*" (change)="onImagenSeleccionada($event)">
+    <button (click)="guardar()">Guardar</button>
+    <button (click)="mostrarFormulario = false">Cancelar</button>
+  </div>
+}
+
+<table>
+  <tr><th>Imagen</th><th>Nombre</th><th>Marca</th><th>Precio</th><th>Stock</th><th>Acciones</th></tr>
+  @for (p of productos; track p.id) {
+    <tr>
+      <td><img [src]="p.image_url" width="50"></td>
+      <td>{{ p.name }}</td>
+      <td>{{ p.brand }}</td>
+      <td>{{ p.price }}€</td>
+      <td>{{ p.stock }}</td>
+      <td>
+        <button (click)="abrirFormulario(p)">Editar</button>
+        <button (click)="eliminar(p.id)">Eliminar</button>
+      </td>
+    </tr>
+  }
+</table>

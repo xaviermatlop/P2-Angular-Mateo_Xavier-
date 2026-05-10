@@ -1,0 +1,18 @@
+<nav>
+  <a routerLink="/">Inicio</a>
+  <a routerLink="/catalogo">Catálogo</a>
+
+  @if (auth.isAdmin()) {
+    <a routerLink="/admin/productos">Admin Productos</a>
+    <a routerLink="/admin/pedidos">Admin Pedidos</a>
+    <span>{{ auth.getNombre() }}</span>
+    <button (click)="logout()">Salir</button>
+  } @else if (auth.isLoggedIn()) {
+    <a routerLink="/mis-pedidos">Mis Pedidos</a>
+    <a routerLink="/carrito">Carrito ({{ carrito.contador() }})</a>
+    <span>{{ auth.getNombre() }}</span>
+    <button (click)="logout()">Salir</button>
+  } @else {
+    <a routerLink="/login">Iniciar Sesión</a>
+  }
+</nav>

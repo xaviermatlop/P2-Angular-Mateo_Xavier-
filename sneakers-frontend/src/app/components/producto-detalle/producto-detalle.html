@@ -1,0 +1,30 @@
+@if (producto) {
+  <div class="detalle">
+    <img [src]="producto.image_url" [alt]="producto.name">
+    <div class="info">
+      <h1>{{ producto.name }}</h1>
+      <p>{{ producto.brand }} — {{ producto.categories?.name }}</p>
+      <p>{{ producto.description }}</p>
+      <h2>{{ producto.price }}€</h2>
+
+      <h3>Selecciona talla:</h3>
+      <div class="tallas">
+        @for (talla of producto.sizes; track talla) {
+          <button
+            [class.seleccionada]="tallaSeleccionada === talla"
+            (click)="tallaSeleccionada = talla">
+            {{ talla }}
+          </button>
+        }
+      </div>
+
+      <label>Cantidad:</label>
+      <input type="number" [(ngModel)]="cantidad" min="1" max="10">
+
+      <button (click)="agregarAlCarrito()">Añadir al carrito</button>
+      @if (mensaje) { <p>{{ mensaje }}</p> }
+    </div>
+  </div>
+} @else {
+  <p>Cargando producto...</p>
+}

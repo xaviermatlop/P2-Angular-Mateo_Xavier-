@@ -1,0 +1,8 @@
+<div class="login-container">
+  <h2>Iniciar Sesión</h2>
+  @if (error) { <p style="color:red">{{ error }}</p> }
+  <input [(ngModel)]="email" placeholder="Email" type="email">
+  <input [(ngModel)]="password" placeholder="Contraseña" type="password">
+  <button (click)="login()">Entrar</button>
+  <p>¿No tienes cuenta? <a routerLink="/register">Regístrate</a></p>
+</div>

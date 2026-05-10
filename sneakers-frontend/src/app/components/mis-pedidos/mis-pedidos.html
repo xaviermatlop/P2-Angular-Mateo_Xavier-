@@ -1,0 +1,21 @@
+<h2>Mis Pedidos</h2>
+
+@if (pedidos.length === 0) {
+  <p>No has realizado ningún pedido todavía.</p>
+  <a routerLink="/catalogo"><button>Empezar a comprar</button></a>
+} @else {
+  @for (pedido of pedidos; track pedido.id) {
+    <div class="pedido-card">
+      <h3>Pedido #{{ pedido.id }}</h3>
+      <p>Estado: <strong>{{ pedido.status }}</strong></p>
+      <p>Total: {{ pedido.total_amount }}€</p>
+      <p>Dirección: {{ pedido.shipping_address }}</p>
+      <details>
+        <summary>Ver productos</summary>
+        @for (item of pedido.order_items; track item.id) {
+          <p>{{ item.products?.name }} x{{ item.quantity }} — {{ item.unit_price }}€</p>
+        }
+      </details>
+    </div>
+  }
+}
