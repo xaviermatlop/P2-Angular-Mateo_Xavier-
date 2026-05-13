@@ -1,0 +1,61 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 100px);
+  background: radial-gradient(circle at top right, #e0e7ff, transparent 40%),
+              radial-gradient(circle at bottom left, #f3e8ff, transparent 40%);
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  padding: 3rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 440px;
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+input {
+  margin-bottom: 1.25rem;
+}
+
+button {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+button:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+p {
+  text-align: center;
+  color: var(--text-muted);
+}
+
+p a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+p a:hover {
+  text-decoration: underline;
+}

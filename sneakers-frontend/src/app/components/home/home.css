@@ -1,59 +1,75 @@
+:host {
+  display: block;
+}
+
 /* ============================
    HERO BANNER
    ============================ */
 .banner {
   position: relative;
-  min-height: 90vh;
+  min-height: 85vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 4rem;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+  z-index: 1;
 }
 
 .banner-overlay {
   position: relative;
   z-index: 2;
-  text-align: center;
+  text-align: left;
   color: #fff;
-  padding: 2rem;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(2px);
-  border-radius: 1rem;
-  max-width: 600px;
+  padding: 3rem;
+  max-width: 800px;
+  width: 100%;
 }
 
 .banner-overlay h1 {
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(3rem, 8vw, 5.5rem);
   font-weight: 800;
-  letter-spacing: -2px;
-  margin: 0 0 1rem;
+  letter-spacing: -0.03em;
+  margin: 0 0 1.5rem;
   line-height: 1.1;
+  color: #fff;
+  text-wrap: balance;
 }
 
 .banner-overlay p {
-  font-size: 1.2rem;
-  margin: 0 0 2rem;
+  font-size: 1.35rem;
+  margin: 0 0 2.5rem;
   opacity: 0.9;
+  max-width: 600px;
 }
 
 .btn-hero {
   background: #fff;
   color: #111;
   border: none;
-  padding: 1rem 2.5rem;
-  font-size: 1rem;
+  padding: 1.25rem 3rem;
+  font-size: 1.1rem;
   font-weight: 700;
   border-radius: 50px;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  letter-spacing: 0.05em;
+  transition: var(--transition);
 }
 
 .btn-hero:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  background: var(--secondary);
 }
 
 /* ============================
@@ -61,17 +77,16 @@
    ============================ */
 .section-destacados,
 .section-cats {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 2rem 0 6rem;
 }
 
 .section-destacados h2,
 .section-cats h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  color: #111;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  text-align: center;
+  letter-spacing: -0.02em;
 }
 
 /* ============================
@@ -79,85 +94,94 @@
    ============================ */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
 .card {
-  border-radius: 1rem;
+  border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  background: #fff;
-  transition: transform 0.2s, box-shadow 0.2s;
+  background: var(--bg-card);
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
 }
 
 .card-img-wrap {
   aspect-ratio: 4/3;
   overflow: hidden;
-  background: #f5f5f5;
+  background: var(--secondary);
+  position: relative;
 }
 
 .card-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover .card-img-wrap img {
-  transform: scale(1.05);
+  transform: scale(1.08) rotate(2deg);
 }
 
 .card-body {
-  padding: 1.25rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .card-brand {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #888;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
 }
 
 .card-body h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin: 0.3rem 0 0.5rem;
-  color: #111;
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
+  color: var(--text-main);
+  line-height: 1.3;
 }
 
 .card-price {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 800;
-  color: #111;
-  margin: 0 0 1rem;
+  color: var(--primary);
+  margin: 0 0 1.5rem;
 }
 
 .btn-card {
+  margin-top: auto;
   width: 100%;
-  padding: 0.75rem;
-  background: #111;
+  padding: 1rem;
+  background: var(--primary);
   color: #fff;
-  border: none;
-  border-radius: 0.5rem;
+  border-radius: 50px;
   font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
+  font-size: 1rem;
 }
 
 .btn-card:hover {
-  background: #333;
+  background: var(--accent);
 }
 
 .empty {
-  color: #888;
-  font-style: italic;
+  text-align: center;
+  color: var(--text-muted);
+  grid-column: 1 / -1;
+  padding: 4rem;
 }
 
 /* ============================
@@ -165,28 +189,28 @@
    ============================ */
 .categorias {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 1rem;
-}
-
-.categorias a {
-  text-decoration: none;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
 }
 
 .cat-card {
-  background: #f5f5f5;
-  border-radius: 1rem;
-  padding: 2rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 3rem 1.5rem;
   text-align: center;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #111;
-  transition: background 0.2s, transform 0.2s;
-  cursor: pointer;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--text-main);
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .cat-card:hover {
-  background: #111;
+  background: var(--primary);
   color: #fff;
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
 }

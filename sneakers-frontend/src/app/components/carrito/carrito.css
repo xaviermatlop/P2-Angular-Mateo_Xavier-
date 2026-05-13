@@ -1,0 +1,124 @@
+:host {
+  display: block;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.vacio {
+  text-align: center;
+  padding: 4rem;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.vacio p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.vacio button {
+  background: var(--primary);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.item-carrito {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.item-carrito:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.item-carrito img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: var(--secondary);
+}
+
+.item-carrito div {
+  flex-grow: 1;
+}
+
+.item-carrito h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.item-carrito p {
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.item-carrito p strong {
+  color: var(--primary);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.item-carrito button {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+.item-carrito button:hover {
+  background: #fecaca;
+}
+
+h3:last-of-type {
+  text-align: right;
+  font-size: 2rem;
+  margin: 2rem 0;
+  border-top: 2px dashed var(--border-color);
+  padding-top: 2rem;
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  width: 100%;
+}
+
+button:hover {
+  background: var(--accent-hover);
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+input {
+  margin-top: 1.5rem;
+}

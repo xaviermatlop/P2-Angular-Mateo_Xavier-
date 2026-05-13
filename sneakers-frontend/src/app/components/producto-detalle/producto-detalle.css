@@ -1,0 +1,128 @@
+:host {
+  display: block;
+  padding: 2rem 0;
+}
+
+.detalle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.detalle img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  background: var(--secondary);
+  object-fit: cover;
+  aspect-ratio: 4/3;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease;
+}
+
+.detalle img:hover {
+  transform: scale(1.02);
+}
+
+.info h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.info > p:first-of-type {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.info > p:nth-of-type(2) {
+  font-size: 1.1rem;
+  color: var(--text-main);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.info h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+
+.info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.tallas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.tallas button {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border-color);
+  background: white;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.tallas button:hover {
+  border-color: var(--primary);
+}
+
+.tallas button.seleccionada {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+input[type="number"] {
+  width: 100px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.info > button {
+  width: 100%;
+  background: var(--accent);
+  color: white;
+  padding: 1.25rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+}
+
+.info > button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+}
+
+.info > button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .detalle {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

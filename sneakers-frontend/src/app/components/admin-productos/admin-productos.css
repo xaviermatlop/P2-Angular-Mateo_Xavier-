@@ -1,0 +1,133 @@
+:host {
+  display: block;
+  padding: 2rem 0;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: var(--radius-sm);
+}
+
+button:hover {
+  background: var(--accent);
+}
+
+.formulario {
+  background: var(--bg-card);
+  padding: 2.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  margin-bottom: 3rem;
+  box-shadow: var(--shadow-sm);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formulario h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.formulario input, 
+.formulario select, 
+.formulario textarea {
+  margin-bottom: 1.25rem;
+}
+
+.formulario textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.formulario label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.formulario button {
+  margin-right: 1rem;
+  margin-bottom: 0;
+}
+
+.formulario button:last-child {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+.formulario button:last-child:hover {
+  background: var(--secondary);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+th, td {
+  padding: 1.25rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background: var(--secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background: #fdfdfd;
+}
+
+td img {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+td button {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  margin-bottom: 0;
+  margin-right: 0.5rem;
+}
+
+td button:last-child {
+  background: transparent;
+  border: 1px solid #dc3545;
+  color: #dc3545;
+}
+
+td button:last-child:hover {
+  background: #dc3545;
+  color: white;
+}
